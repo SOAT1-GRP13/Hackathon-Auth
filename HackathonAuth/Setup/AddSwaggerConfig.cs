@@ -10,11 +10,11 @@ public static class AddSwaggerConfig
 {
     public static void AddSwaggerGenConfig(this IServiceCollection services)
     {
-        var xmlFile = $"{Assembly.GetExecutingAssembly().GetName().Name}.xml";
-        var xmlPath = Path.Combine(AppContext.BaseDirectory, xmlFile);
-
-        services.AddSwaggerGen(delegate (SwaggerGenOptions c)
+        services.AddSwaggerGen((SwaggerGenOptions c) =>
         {
+            var xmlFile = $"{Assembly.GetExecutingAssembly().GetName().Name}.xml";
+            var xmlPath = Path.Combine(AppContext.BaseDirectory, xmlFile);
+
             c.EnableAnnotations();
             c.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme
             {
@@ -37,7 +37,6 @@ public static class AddSwaggerConfig
                 },
                 Array.Empty<string>()
             } });
-
 
             c.CustomSchemaIds((Type x) => x.FullName);
             c.IncludeXmlComments(xmlPath);
