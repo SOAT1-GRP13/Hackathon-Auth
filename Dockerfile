@@ -29,7 +29,7 @@ WORKDIR /app
 COPY --from=build /app/out .
 
 # Expondo a porta da aplicação
-EXPOSE 80
+EXPOSE 8080
 
 # Iniciar a aplicação quando o contêiner for iniciado
 ENTRYPOINT ["dotnet", "HackathonAuth.dll"]
