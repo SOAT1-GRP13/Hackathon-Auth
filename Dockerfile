@@ -8,10 +8,10 @@ COPY ./HackathonAuth/*.csproj ./HackathonAuth/
 COPY ./Application/*.csproj ./Application/
 COPY ./Domain/*.csproj ./Domain/
 COPY ./Infra/*.csproj ./Infra/
-#COPY ./Tests/HackathonAuth.Tests/*.csproj ./Tests/HackathonAuth.Tests/
-#COPY ./Tests/Application.Tests/*.csproj ./Tests/Application.Tests/
-#COPY ./Tests/Domain.Tests/*.csproj ./Tests/Domain.Tests/
-#COPY ./Tests/Infra.Tests/*.csproj ./Tests/Infra.Tests/
+COPY ./Tests/HackathonAuth.Tests/*.csproj ./Tests/HackathonAuth.Tests/
+COPY ./Tests/Application.Tests/*.csproj ./Tests/Application.Tests/
+COPY ./Tests/Domain.Tests/*.csproj ./Tests/Domain.Tests/
+COPY ./Tests/Infra.Tests/*.csproj ./Tests/Infra.Tests/
 
 RUN dotnet restore
 
