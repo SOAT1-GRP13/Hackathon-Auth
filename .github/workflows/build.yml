@@ -63,5 +63,5 @@ jobs:
      with:
        task-definition: ${{ steps.task-def.outputs.task-definition }}
        service: auth-service
-       cluster: soat1-grp13-hackathon
+       cluster: soat1-grp13-hackaton
        wait-for-service-stability: true
