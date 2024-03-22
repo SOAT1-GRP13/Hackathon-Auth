@@ -1,0 +1,42 @@
+{
+    "family": "hackaton-auth-api",
+    "containerDefinitions": [
+        {
+            "name": "hackaton-auth-api",
+            "image": "christiandmelo/hackathon-soat1-grp13-auth:V1.0.10",
+            "cpu": 0,
+            "portMappings": [
+                {
+                    "name": "hackaton-auth-api-8080-tcp",
+                    "containerPort": 8080,
+                    "hostPort": 8080,
+                    "protocol": "tcp",
+                    "appProtocol": "http"
+                }
+            ],
+            "essential": true,
+            "environment": [],
+            "mountPoints": [],
+            "volumesFrom": [],
+            "logConfiguration": {
+                "logDriver": "awslogs",
+                "options": {
+                    "awslogs-create-group": "true",
+                    "awslogs-group": "/ecs/hackaton-auth-api",
+                    "awslogs-region": "us-west-2",
+                    "awslogs-stream-prefix": "ecs"
+                },
+                "secretOptions": []
+            },
+            "systemControls": []
+        }
+    ],
+    "taskRoleArn": "arn:aws:iam::834794241069:role/taskRole",
+    "executionRoleArn": "arn:aws:iam::834794241069:role/taskRole",
+    "networkMode": "awsvpc",
+    "requiresCompatibilities": [
+        "FARGATE"
+    ],
+    "cpu": "256",
+    "memory": "512"
+}
