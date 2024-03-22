@@ -1,4 +1,5 @@
 ﻿using Domain.Autenticacao;
+using Domain.Autenticacao.Enums;
 using Domain.Base.Data;
 using Domain.Base.Messages;
 using Microsoft.EntityFrameworkCore;
@@ -49,17 +50,20 @@ public class AutenticacaoContext : DbContext, IUnitOfWork
                 "2200101",
                 "B5D3A85785B854548A440F1EA52F19EF920AB9ED29136B977861B5E36983DEA2C92F29D5939A427AAAEDBC67C3B48A6CD9E1D45483D3796E0A60F113240BB49C",
                 "jose.silva@gmail.com",
-                "José Silva"),
+                "José Silva",
+                Roles.Usuario),
             new AcessoUsuario(
                 "2300102",
                 "B5D3A85785B854548A440F1EA52F19EF920AB9ED29136B977861B5E36983DEA2C92F29D5939A427AAAEDBC67C3B48A6CD9E1D45483D3796E0A60F113240BB49C",
                 "renata.barros@gmail.com",
-                "Renata Barros"),
+                "Renata Barros",
+                Roles.Usuario),
             new AcessoUsuario(
                 "2400103",
                 "B5D3A85785B854548A440F1EA52F19EF920AB9ED29136B977861B5E36983DEA2C92F29D5939A427AAAEDBC67C3B48A6CD9E1D45483D3796E0A60F113240BB49C",
                 "felipe.okagawa@gmail.com",
-                "Felipe Okagawa")
+                "Felipe Okagawa",
+                Roles.Usuario)
         );
 
         base.OnModelCreating(modelBuilder);
