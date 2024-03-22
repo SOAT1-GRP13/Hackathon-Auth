@@ -1,7 +1,9 @@
 ﻿using HackathonAuth.Setup.SecretsManager;
+using System.Diagnostics.CodeAnalysis;
 
 namespace HackathonAuth.Setup;
 
+[ExcludeFromCodeCoverage]
 public static class SecretsManagerSetup
 {
     public static void AddAmazonSecretsManager(this IConfigurationBuilder configurationBuilder,

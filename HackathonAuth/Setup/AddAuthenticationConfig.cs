@@ -1,9 +1,11 @@
 ﻿using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
+using System.Diagnostics.CodeAnalysis;
 using System.Text;
 
 namespace HackathonAuth.Setup;
 
+[ExcludeFromCodeCoverage]
 public static class AddAuthenticationConfig
 {
     public static void AddAuthenticationJWT(this IServiceCollection services, string secret)

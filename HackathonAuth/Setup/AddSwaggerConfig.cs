@@ -2,10 +2,12 @@
 using Microsoft.OpenApi.Models;
 using Swashbuckle.AspNetCore.Filters;
 using Swashbuckle.AspNetCore.SwaggerGen;
+using System.Diagnostics.CodeAnalysis;
 using System.Reflection;
 
 namespace HackathonAuth.Setup;
 
+[ExcludeFromCodeCoverage]
 public static class AddSwaggerConfig
 {
     public static void AddSwaggerGenConfig(this IServiceCollection services)
