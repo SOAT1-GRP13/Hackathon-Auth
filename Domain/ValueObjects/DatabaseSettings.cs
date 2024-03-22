@@ -1,5 +1,8 @@
-﻿namespace Domain.ValueObjects;
+﻿using System.Diagnostics.CodeAnalysis;
 
+namespace Domain.ValueObjects;
+
+[ExcludeFromCodeCoverage]
 public class DatabaseSettings
 {
     public DatabaseSettings()

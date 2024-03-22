@@ -1,11 +1,13 @@
 ﻿using Amazon;
 using Amazon.SecretsManager;
 using Amazon.SecretsManager.Model;
+using System.Diagnostics.CodeAnalysis;
 using System.Text;
 using System.Text.Json;
 
 namespace HackathonAuth.Setup.SecretsManager;
 
+[ExcludeFromCodeCoverage]
 public class AmazonSecretsManagerConfigurationProvider : ConfigurationProvider
 {
     private readonly string _region;
