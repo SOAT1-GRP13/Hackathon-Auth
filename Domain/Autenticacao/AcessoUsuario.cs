@@ -1,4 +1,5 @@
-﻿using Domain.Base.DomainObjects;
+﻿using Domain.Autenticacao.Enums;
+using Domain.Base.DomainObjects;
 
 namespace Domain.Autenticacao;
 
@@ -11,6 +12,7 @@ public class AcessoUsuario : Entity, IAggregateRoot
         Senha = string.Empty;
         Nome = string.Empty;
         Email = string.Empty;
+        Role = Roles.Usuario;
     }
 
     public AcessoUsuario(string matricula, string senha)
@@ -19,17 +21,18 @@ public class AcessoUsuario : Entity, IAggregateRoot
         Senha = senha;
         Email = string.Empty;
         Nome = string.Empty;
+        Role = Roles.Usuario;
 
         ValidarAutenticacao();
     }
 
-    public AcessoUsuario(string matricula, string senha, string email, string nome)
+    public AcessoUsuario(string matricula, string senha, string email, string nome, Roles role)
     {
         Matricula = matricula;
         Senha = senha;
         Email = email;
         Nome = nome;
-
+        Role = role;
         ValidarCadastro();
     }
 
@@ -42,6 +45,8 @@ public class AcessoUsuario : Entity, IAggregateRoot
     public string Nome { get; private set; }
 
     public string Email { get; private set; }
+
+    public Roles Role { get; private set; }
 
 
     public void ValidarAutenticacao()

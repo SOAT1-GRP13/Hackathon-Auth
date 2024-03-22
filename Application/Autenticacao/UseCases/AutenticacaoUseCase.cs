@@ -36,7 +36,7 @@ public class AutenticacaoUseCase : IAutenticacaoUseCase
         if (string.IsNullOrEmpty(autenticado.Matricula))
             return new AutenticaUsuarioOutput();
 
-        var token = GenerateToken(autenticado.Nome, /*Roles.Cliente.ToString(),*/ autenticado.Id, autenticado.Email);
+        var token = GenerateToken(autenticado.Nome, autenticado.Role.ToString(), autenticado.Id, autenticado.Email);
 
         await _UsuarioLogadoRepository.AddUsuarioLogado(token);
         return new AutenticaUsuarioOutput(autenticado.Nome, token);
@@ -48,7 +48,7 @@ public class AutenticacaoUseCase : IAutenticacaoUseCase
         _autenticacaoRepository.Dispose();
     }
 
-    private string GenerateToken(string name, /*string role,*/ Guid idUsuario, string email)
+    private string GenerateToken(string name, string role, Guid idUsuario, string email)
     {
         var tokenHandler = new JwtSecurityTokenHandler();
         var secret = _settings.ClientSecret;
@@ -60,7 +60,7 @@ public class AutenticacaoUseCase : IAutenticacaoUseCase
             {
                 new Claim(ClaimTypes.NameIdentifier, idUsuario.ToString()),
                 new Claim(ClaimTypes.Name, name),
-                //new Claim(ClaimTypes.Role, role),
+                new Claim(ClaimTypes.Role, role),
                 new Claim(ClaimTypes.Email, email)
             }),
             Expires = DateTime.UtcNow.AddHours(1),
